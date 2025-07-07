@@ -41,20 +41,7 @@ def main():
 
             for shot in shots:
                 if asteroid.collides_with(shot):
-                    # my asteroid.split() returns a tuple of 2 values, each a tuple of 3 values with the asteroid properties (radius, position, velocity)
-                    try:
-                        new_asteroid_1, new_asteroid_2 = asteroid.split() 
-                        # if the old asteroid was below min size, split returns None. this will cause a TypeError
-                        # upon unpacking, so we need to handle this
-                    except TypeError:
-                        break
-
-                    asteroidfield.spawn(*new_asteroid_1) 
-                    asteroidfield.spawn(*new_asteroid_2)
-
-                    ### From solution code, they use this one line instead of 3 as the split method handles spawning the new asteroids
-                    ### it doesn't return the new asteroid values, so there's no unpacking, and no need to handle the TypeError
-                    # asteroid.split()  
+                    asteroid.split()  
                     shot.kill()
 
                     
